@@ -34,21 +34,25 @@ classdef claster < handle
 %                 disp(obj.weights(i))
                 if y ~= obj.weights(i)
 %                     disp("NORM")
-                    j = obj.getArgmax(i, k);
-                    cij = obj.functions(i, j).c;
-                    ckj = obj.functions(k, j).c;
-                    wk = obj.weights(k);
-                    wi = obj.weights(i);
-
-%                     disp(wk)
-
-                    x = (cij - ckj)*wk/(wk - wi) + ckj;
-%                     disp(x)
-                    if ckj < cij
-                        obj.functions(k, j).h= x;
-                    else 
-                        obj.functions(k, j).l = x;
+                    for j = 1:length(obj.functions(i, :))
+                        %j = obj.getArgmax(i, k);
+                        cij = obj.functions(i, j).c;
+                        ckj = obj.functions(k, j).c;
+                        wk = obj.weights(k);
+                        wi = obj.weights(i);
+    
+    %                     disp(wk)
+    
+                        x = (cij - ckj)*wk/(wk - wi) + ckj;
+    %                     disp(x)
+                        if ckj < cij
+                            obj.functions(k, j).h= x;
+                        else 
+                            obj.functions(k, j).l = x;
+                        end
                     end
+
+                    
                 end
             end
         end

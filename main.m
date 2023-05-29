@@ -10,7 +10,7 @@ cm = claster();
 % %         SOME FUNC
 % %-----------------------------
 
-x = (0:0.4:100)';
+x = (0:0.1:10)';
 y = sin(2*x)./exp(x/5);
 
 for i = 1:length(x)
@@ -20,6 +20,7 @@ end
 
 
 yc = [];
+
 for i = 1: length(x)
     yc = [yc; cm.eval(x(i))];
 end
