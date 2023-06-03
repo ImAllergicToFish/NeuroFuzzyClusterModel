@@ -9,20 +9,20 @@ classdef motionToGoalSubsystem < handle
     
     methods
 
-        function obj = motionToGoalSubSystem(obj)
+        function obj = motionToGoalSubsystem()
             import claster.*;
             obj.cmVL = claster();
             obj.cmVR = claster();
         end
         
-        function outputArg = method1(obj, gd, ga)
+        function outputArg = addExample(obj, gd, ga)
             obj.cmVL.addExample([gd, ga], vl);
             obj.cmVR.addExample([gd, ga], vr);
         end
 
-        function train(obj, RMSE)
-            obj.cmVL(RMSE);
-            obj.cmVR(RMSE);
+        function train(obj, rmse_accuracy)
+            obj.cmVL(rmse_accuracy);
+            obj.cmVR(rmse_accuracy);
         end
 
         function [vl, vr] = exec(obj, gd, ga)

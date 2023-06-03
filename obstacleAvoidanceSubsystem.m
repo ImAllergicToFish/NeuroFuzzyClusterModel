@@ -17,9 +17,9 @@ classdef obstacleAvoidanceSubsystem < handle
             obj.cmVR.addExample([ld, fd, rd], vr);
         end
 
-        function train(obj, RMSE)
-            obj.cmVL(RMSE);
-            obj.cmVR(RMSE);
+        function train(obj, rmse_accuracy)
+            obj.cmVL(rmse_accuracy);
+            obj.cmVR(rmse_accuracy);
         end
 
         function [vl, vr] = exec(obj, ld, fd, rd)
