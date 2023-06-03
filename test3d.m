@@ -24,9 +24,8 @@ end
 
 
 
-for i = 1:20
-    cm.norm();
-end
+cm.train(0.0001);
+cm.plotRules();
 
 zt = [];
 for i = 1:length(x)
@@ -36,9 +35,9 @@ for i = 1:length(x)
     end
 end
 
-figure(1)
+figure("Name", "Boba")
 surf(x, y, zt)
-figure(2)
+figure("Name", "BIBA")
 surf(x, y, z)
 
 eMkv = (z-zt).^2;               % квадрат ошибки аппрокс.в узловых точках
@@ -48,6 +47,8 @@ NeM = numel(zt);                % общее количество контрол
 RMSE_M = sqrt(SeMkv/NeM);
 
 disp(['  RMSE = ',  num2str(RMSE_M)])
+F = rmse(z, zt, "all");
+disp(F)
 
 % i = 1;
 % j =1;
