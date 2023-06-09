@@ -15,14 +15,14 @@ classdef motionToGoalSubsystem < handle
             obj.cmVR = claster();
         end
         
-        function outputArg = addExample(obj, gd, ga)
+        function addExample(obj, gd, ga, vl, vr)
             obj.cmVL.addExample([gd, ga], vl);
             obj.cmVR.addExample([gd, ga], vr);
         end
 
         function train(obj, rmse_accuracy)
-            obj.cmVL(rmse_accuracy);
-            obj.cmVR(rmse_accuracy);
+            obj.cmVL.train(rmse_accuracy);
+            obj.cmVR.train(rmse_accuracy);
         end
 
         function [vl, vr] = exec(obj, gd, ga)
