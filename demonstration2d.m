@@ -9,7 +9,7 @@ close all;
 %--------------------------------------------------------------------------
 % SET THE FUNCTION ARGUMENTS:
 
-x = (0:2:10)';
+x = (0:0.1:10)';
 
 % SET FUNCTION:
 
@@ -18,7 +18,7 @@ y = sin(2*x)./exp(x/5);
 % SET OPTIONS:
 
 accuracy = 0.0001; % required accuracy of approximation
-ps = 1; % pause in sec between iterations
+ps = 0; % pause in sec between iterations
 printRules = true; % print trained model rules
 
 %==========================================================================

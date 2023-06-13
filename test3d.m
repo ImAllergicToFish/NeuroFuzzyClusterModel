@@ -14,8 +14,6 @@ x = -2:0.3:2;
 y = x';
 z = x .* exp(-x.^2 - y.^2);
 
-
-
 for i = 1:length(x)
     for j = 1:length(y)
         cm.addExample([x(i), y(j)], z(i,j));
@@ -35,9 +33,9 @@ for i = 1:length(x)
     end
 end
 
-figure("Name", "Boba")
+figure("Name", "А это кто?")
 surf(x, y, zt)
-figure("Name", "BIBA")
+figure("Name", "Это я")
 surf(x, y, z)
 
 eMkv = (z-zt).^2;               % квадрат ошибки аппрокс.в узловых точках

@@ -1,7 +1,5 @@
 classdef motionToGoalSubsystem < handle
-    %MOTION Summary of this class goes here
-    %   Detailed explanation goes here
-    
+   
     properties
         cmVL;
         cmVR;
